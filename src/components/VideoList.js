@@ -42,19 +42,34 @@ class VideoList extends React.Component {
   //   )
   // }
 
-  //method 2: works well
+  // Method 5: works well
   render() {
+    const videosList = this.props.videos.map(video => {
+      return <VideoItem key={video.id.videoId} onVideoSelect={this.props.onVideoSelect} video={video} />
+      }
+    )
+
     return (
       <div className="ui relaxed divided list">
-        {
-          this.props.videos.map(video => {
-            return <VideoItem key={video.id.videoId} onVideoSelect={this.props.onVideoSelect} video={video} />
-            }
-          )
-        }
+        {videosList}
       </div>
     )
   }
+
+
+  //method 2: works well
+  // render() {
+  //   return (
+  //     <div className="ui relaxed divided list">
+  //       {
+  //         this.props.videos.map(video => {
+  //           return <VideoItem key={video.id.videoId} onVideoSelect={this.props.onVideoSelect} video={video} />
+  //           }
+  //         )
+  //       }
+  //     </div>
+  //   )
+  // }
 };
 
 // method 3: functional component works well
